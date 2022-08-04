@@ -1,0 +1,155 @@
+:root {
+	--very-dark-gray: #2b2b2b;
+	--dark-gray: #969696;
+	--dark: #000;
+	--white: #fff;
+}
+
+html * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Rubik', sans-serif;
+	background-color: #969696;
+}
+
+.ip-info {
+	position: relative;
+}
+
+input,
+input:focus-visible {
+	/* all: unset; */
+	border: unset;
+	outline: none;
+}
+
+input[type='text'] {
+	padding: 18px 24px;
+	border-radius: 15px 0 0 15px;
+}
+
+.form-control {
+	display: flex;
+}
+
+.form-input {
+	width: 82%;
+	font-size: 18px;
+}
+
+.form-button {
+	border-radius: 0 15px 15px 0;
+	background-color: var(--dark);
+	border: unset;
+	color: var(--white);
+	padding: 20px 25px;
+	cursor: pointer;
+	font-size: 12px;
+	width: 18%;
+}
+
+.form-button:focus {
+	background-color: var(--very-dark-gray);
+}
+
+.page-header-wrapper {
+	background-image: url('../images/pattern-bg.png');
+	background-size: cover;
+}
+
+.page-header {
+	margin-inline: auto;
+	padding-top: 26px;
+	width: min(555px, 90%);
+	text-align: center;
+	padding-bottom: 170px;
+}
+
+.page-title {
+	font-size: 26px;
+	font-weight: 500;
+	margin-bottom: 30px;
+	color: var(--white);
+}
+
+.fields {
+	position: absolute;
+	display: flex;
+	background-color: var(--white);
+	flex-direction: column;
+	gap: 24px;
+	padding: 26px 24px;
+	border-radius: 15px;
+	width: 90%;
+	max-width: 555px;
+	top: -140px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.field {
+	text-align: center;
+}
+
+.key {
+	font-weight: 900;
+	color: var(--dark-gray);
+	font-size: 10px;
+	margin-bottom: 7px;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+}
+
+.value {
+	font-size: 20px;
+	color: var(--very-dark-gray);
+	font-weight: 500;
+}
+
+.field-divider {
+	display: none;
+}
+
+@media screen and (min-width: 750px) {
+	.page-title {
+		font-size: 32px;
+	}
+
+	.page-header {
+		padding-bottom: 120px;
+	}
+
+	.fields {
+		margin-inline: auto;
+		top: -80px;
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 30px;
+		padding: 37px 32px;
+		width: 90%;
+		max-width: 1110px;
+	}
+
+	.field {
+		width: 25%;
+		text-align: start;
+	}
+
+	.field-divider {
+		display: inline-block;
+		border-left: 2px solid rgba(0, 0, 0, 0.15);
+	}
+
+	.key {
+		font-size: 12px;
+		margin-bottom: 13px;
+	}
+
+	.value {
+		font-size: 26px;
+	}
+}
