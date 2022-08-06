@@ -1,0 +1,33 @@
+@media screen and (min-width: 750px) {
+	.page-header {
+		.title {
+			font-size: 32px;
+		}
+	}
+
+	.ip-data {
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 30px;
+		padding: 37px 32px;
+
+		.field {
+			width: 25%;
+			text-align: start;
+		}
+
+		.key {
+			font-size: 12px;
+			margin-bottom: 13px;
+		}
+
+		.value {
+			font-size: 26px;
+		}
+
+		.field-divider {
+			display: inline-block;
+			border-left: 2px solid rgba(0, 0, 0, 0.15);
+		}
+	}
+}

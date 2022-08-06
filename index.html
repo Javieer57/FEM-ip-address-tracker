@@ -35,17 +35,58 @@
 
 		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 		<style>
-			.attribution {
+			/* .attribution {
 				font-size: 11px;
 				text-align: center;
 			}
 			.attribution a {
 				color: hsl(228, 45%, 44%);
-			}
+			}*/
 		</style>
 	</head>
 	<body>
-		<header class="page-header-wrapper">
+		<header class="page-header">
+			<h1 class="title">IP Address Tracker</h1>
+
+			<form class="form-control" action="">
+				<input type="text" name="" id="" placeholder="Search for any IP address or domain" />
+				<button type="submit" aria-label="search IP information">
+					<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i>
+				</button>
+			</form>
+
+			<dl class="ip-data">
+				<div class="field" style="word-break: break-all">
+					<dt class="key">IP Address</dt>
+					<dd class="value" id="ip-address">198.205.186.214</dd>
+				</div>
+
+				<div class="field-divider"></div>
+
+				<div class="field">
+					<dt class="key">Location</dt>
+					<dd class="value" id="location">New Millieside, NY, 40340</dd>
+				</div>
+
+				<div class="field-divider"></div>
+
+				<div class="field">
+					<dt class="key">Timezone</dt>
+					<dd class="value">UTC <span id="timezone">11:03</span></dd>
+				</div>
+
+				<div class="field-divider"></div>
+
+				<div class="field">
+					<dt class="key">ISP</dt>
+					<dd class="value" id="isp">Ferry, Towne and Goldner</dd>
+				</div>
+			</dl>
+
+			<div class="background"></div>
+		</header>
+
+		<!-- <header class="page-header-wrapper">
 			<div class="page-header">
 				<h1 class="page-title">IP Address Tracker</h1>
 
@@ -88,7 +129,7 @@
 			</dl>
 
 			<div class="map"></div>
-		</main>
+		</main> -->
 
 		<!-- <main>
 			<dl class="fields">
