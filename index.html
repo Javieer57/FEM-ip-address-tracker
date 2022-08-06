@@ -12,6 +12,21 @@
 			referrerpolicy="no-referrer"
 		></script>
 
+		<!-- Leaftlet -->
+		<!-- CSS -->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+			integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+			crossorigin="anonymous"
+		/>
+		<!-- JS -->
+		<script
+			src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+			integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+			crossorigin="anonymous"
+		></script>
+
 		<!-- Rubik font -->
 		<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
 		<link
@@ -84,82 +99,8 @@
 			</dl>
 
 			<div class="background"></div>
+			<main id="map"></main>
 		</header>
-
-		<!-- <header class="page-header-wrapper">
-			<div class="page-header">
-				<h1 class="page-title">IP Address Tracker</h1>
-
-				<form action="" class="form-control">
-					<input type="text" name="" id="" placeholder="Search for any IP address or domain" class="form-input" />
-					<button type="submit" class="form-button">
-						<i class="fa-solid fa-angle-right fa-fw"></i>
-					</button>
-				</form>
-			</div>
-		</header>
-
-		<main class="ip-info">
-			<dl class="fields">
-				<div class="field" style="word-break: break-all">
-					<dt class="key">IP Address</dt>
-					<dd class="value" id="ip-address">198.205.186.214</dd>
-				</div>
-
-				<div class="field-divider"></div>
-
-				<div class="field">
-					<dt class="key">Location</dt>
-					<dd class="value" id="location">New Millieside, NY, 40340</dd>
-				</div>
-
-				<div class="field-divider"></div>
-
-				<div class="field">
-					<dt class="key">Timezone</dt>
-					<dd class="value">UTC <span id="timezone">11:03</span></dd>
-				</div>
-
-				<div class="field-divider"></div>
-
-				<div class="field">
-					<dt class="key">ISP</dt>
-					<dd class="value" id="isp">Ferry, Towne and Goldner</dd>
-				</div>
-			</dl>
-
-			<div class="map"></div>
-		</main> -->
-
-		<!-- <main>
-			<dl class="fields">
-				<div class="field" style="word-break: break-all">
-					<dt class="key">IP Address</dt>
-					<dd class="value" id="ip-address">198.205.186.214</dd>
-				</div>
-
-				<div class="field-divider"></div>
-
-				<div class="field">
-					<dt class="key">Location</dt>
-					<dd class="value" id="location">New Millieside, NY, 40340</dd>
-				</div>
-
-				<div class="field-divider"></div>
-
-				<div class="field">
-					<dt class="key">Timezone</dt>
-					<dd class="value">UTC <span id="utc-timezone">11:03</span></dd>
-				</div>
-
-				<div class="field-divider"></div>
-
-				<div class="field">
-					<dt class="key">ISP</dt>
-					<dd class="value" id="isp">Ferry, Towne and Goldner</dd>
-				</div>
-			</dl>
-		</main> -->
 
 		<!-- <div class="attribution">
 			Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
