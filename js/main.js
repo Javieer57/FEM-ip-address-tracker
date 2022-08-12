@@ -72,8 +72,29 @@ async function getIpAddressInfo(ip) {
 }
 
 /* :: Start function :: */
-const searchIpInfo = (ip) => {
-	getIpAddressInfo(ip)
-		.then((data) => updatePage(data))
-		.catch((error) => error.message);
+const searchIpInfo = (ipAddress) => {
+	if (isValidIp(ipAddress)) {
+		// alert('valid IP!');
+		getIpAddressInfo(ipAddress)
+			.then((data) => updatePage(data))
+			.catch((error) => error.message);
+	} else {
+		alert('You have entered an invalid IP address!');
+	}
 };
+
+/* :: Input validation functions :: */
+const validateValue = () => {
+	// If is not a number or a dot, delete it.
+	let validatedValue = ipInput.value.replace(/[^\d|.]/g, '');
+	ipInput.value = validatedValue;
+};
+
+function isValidIp(ipAddress) {
+	// Source: https://stackoverflow.com/questions/4460586/javascript-regular-expression-to-check-for-ip-addresses
+
+	let ipRegEx =
+		/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+
+	return ipRegEx.test(ipAddress) ? true : false;
+}
