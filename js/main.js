@@ -1,3 +1,5 @@
+const apiKey = 'at_YMPCdNQj6VdSH30UzAO3bK2Nf83gn';
+
 /* :: HTML elements :: */
 const ipInput = document.getElementById('ip-input');
 const ipField = document.getElementById('ip-address');
@@ -49,12 +51,10 @@ const standbyState = () => {
 };
 
 /* :: Fetch data functions :: */
-async function getIpAddressInfo(ip) {
+async function getIpAddressInfo(ipAddress) {
 	standbyState();
-	//  '../mock-api-data.json';
-	//  '../mock-api-data-2.json';
-	// let url = '../mock-api-data.json';
-	let url = ip;
+
+	let url = `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${ipAddress}`;
 
 	try {
 		let response = await fetch(url);
@@ -72,9 +72,10 @@ async function getIpAddressInfo(ip) {
 }
 
 /* :: Start function :: */
-const searchIpInfo = (ipAddress) => {
+const searchIpInfo = () => {
+	let ipAddress = ipInput.value;
+
 	if (isValidIp(ipAddress)) {
-		// alert('valid IP!');
 		getIpAddressInfo(ipAddress)
 			.then((data) => updatePage(data))
 			.catch((error) => error.message);
@@ -85,14 +86,12 @@ const searchIpInfo = (ipAddress) => {
 
 /* :: Input validation functions :: */
 const validateValue = () => {
-	// If is not a number or a dot, delete it.
-	let validatedValue = ipInput.value.replace(/[^\d|.]/g, '');
+	let validatedValue = ipInput.value.replace(/[^\d|.]/g, ''); // If is not a number or a dot, delete it.
 	ipInput.value = validatedValue;
 };
 
 function isValidIp(ipAddress) {
 	// Source: https://stackoverflow.com/questions/4460586/javascript-regular-expression-to-check-for-ip-addresses
-
 	let ipRegEx =
 		/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
