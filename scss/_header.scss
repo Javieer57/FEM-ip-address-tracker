@@ -88,6 +88,7 @@ body {
 	gap: 24px;
 	padding: 26px 24px;
 	border-radius: 15px;
+	z-index: 999;
 
 	.field {
 		text-align: center;
@@ -116,5 +117,4 @@ body {
 #map {
 	grid-column: 1 / -1;
 	grid-row: 4 / 6;
-	z-index: -1;
 }
