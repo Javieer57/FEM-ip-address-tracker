@@ -1,6 +1,7 @@
 const apiKey = 'at_YMPCdNQj6VdSH30UzAO3bK2Nf83gn';
 
 /* :: HTML elements :: */
+const ipAddressForm = document.getElementById('ipAddress-form');
 const ipInput = document.getElementById('ip-input');
 const ipField = document.getElementById('ip-address');
 const locationField = document.getElementById('location');
@@ -22,7 +23,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 /* :: Update functions :: */
 const updateMap = (lat, lng) => {
-	map.setView([lat, lng], 13);
+	map.setView([lat, lng], 14);
 	marker.remove();
 	marker.setLatLng([lat, lng]);
 	marker.addTo(map);
@@ -54,8 +55,7 @@ const standbyState = () => {
 };
 
 /* :: Fetch data functions :: */
-// async function getIpAddressInfo(ipAddress) {
-async function getIpAddressInfo(num) {
+async function getIpAddressInfo(ipAddress) {
 	standbyState();
 
 	let url = `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${ipAddress}`;
@@ -76,16 +76,21 @@ async function getIpAddressInfo(num) {
 }
 
 /* :: Start function :: */
-const searchIpInfo = () => {
+ipAddressForm.addEventListener('submit', function (e) {
+	e.preventDefault();
 	let ipAddress = ipInput.value;
 
 	if (isValidIp(ipAddress)) {
-		getIpAddressInfo(ipAddress)
-			.then((data) => updatePage(data))
-			.catch((error) => error.message);
+		searchIpInfo(ipAddress);
 	} else {
 		alert('You have entered an invalid IP address!');
 	}
+});
+
+const searchIpInfo = (ipAddress) => {
+	getIpAddressInfo(ipAddress)
+		.then((data) => updatePage(data))
+		.catch((error) => error.message);
 };
 
 /* :: Input validation functions :: */
@@ -94,10 +99,10 @@ const validateValue = () => {
 	ipInput.value = validatedValue;
 };
 
-function isValidIp(ipAddress) {
+const isValidIp = (ipAddress) => {
 	// Source: https://stackoverflow.com/questions/4460586/javascript-regular-expression-to-check-for-ip-addresses
 	let ipRegEx =
 		/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
 	return ipRegEx.test(ipAddress) ? true : false;
-}
+};
