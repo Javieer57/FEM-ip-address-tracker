@@ -8,21 +8,24 @@ const timezoneField = document.getElementById('timezone');
 const ispField = document.getElementById('isp');
 
 /* :: Leaflet map :: */
-let map = L.map('map').setView([0, 0], 15);
-
+// let map = L.map('map').fitWorld();
+let map = L.map('map').setView([0, 0], 3);
 const myIcon = L.icon({ iconUrl: '../images/icon-location.svg' });
+let marker = L.marker([0, 0], { icon: myIcon });
 
-var marker = L.marker([0, 0], { icon: myIcon }).addTo(map);
+// var marker = L.marker([0, 0], { icon: myIcon }).addTo(map);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 19,
+	maxZoom: 15,
 	attribution: '© OpenStreetMap',
 }).addTo(map);
 
 /* :: Update functions :: */
 const updateMap = (lat, lng) => {
-	map.panTo(new L.LatLng(lat, lng));
+	map.setView([lat, lng], 13);
+	marker.remove();
 	marker.setLatLng([lat, lng]);
+	marker.addTo(map);
 };
 
 const updatePage = (data) => {
@@ -51,7 +54,8 @@ const standbyState = () => {
 };
 
 /* :: Fetch data functions :: */
-async function getIpAddressInfo(ipAddress) {
+// async function getIpAddressInfo(ipAddress) {
+async function getIpAddressInfo(num) {
 	standbyState();
 
 	let url = `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${ipAddress}`;
