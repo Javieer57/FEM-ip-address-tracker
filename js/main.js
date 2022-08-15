@@ -38,7 +38,7 @@ const updateMap = (data) => {
 
 const updateInfoFields = (ipInfo) => {
 	let ipAddress = ipInfo.ip,
-		ipLocation = `${ipInfo.location.city}, ${ipInfo.location.region}, ${ipInfo.location.postalCode}`,
+		ipLocation = `${ipInfo.location.city}, ${ipInfo.location.country}, ${ipInfo.location.postalCode}`,
 		ipTimezone = ipInfo.location.timezone,
 		ipIsp = ipInfo.isp;
 
@@ -66,11 +66,11 @@ const standbyState = () => {
 const getParameters = () => {
 	let parameters = '';
 
-	if (isValidDomain) {
+	if (isValidDomain(ipInput.value)) {
 		parameters = `&domain=${ipInput.value}`;
 	}
 
-	if (isValidIp) {
+	if (isValidIp(ipInput.value)) {
 		parameters = `&ipAddress=${ipInput.value}`;
 	}
 
