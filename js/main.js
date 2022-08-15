@@ -125,6 +125,7 @@ const getIpData = (e) => {
 	if (!isValidInputValue(ipInput.value)) {
 		alert('You have entered an invalid IP address or domain!');
 	} else {
+		standbyState();
 		let parameters = getParameters();
 		fetchIpData(parameters)
 			.then((data) => updatePage(data))
