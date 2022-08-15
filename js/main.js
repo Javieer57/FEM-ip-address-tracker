@@ -13,7 +13,7 @@ const ispField = document.getElementById('isp');
 
 /* :: Leaflet map :: */
 let map = L.map('map').setView([0, 0], 3);
-const myIcon = L.icon({ iconUrl: '../images/icon-location.svg' });
+const myIcon = L.icon({ iconUrl: './images/icon-location.svg' });
 let marker = L.marker([0, 0], { icon: myIcon });
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
